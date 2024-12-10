@@ -269,7 +269,7 @@ impl<T: Copy + Display> Matrix<T> {
         &'a self,
         start: &'b Cell<T>,
         directions: &'b [Dir],
-    ) -> impl Iterator<Item = (Dir, Option<Cell<T>>)> + '_ {
+    ) -> impl Iterator<Item = (Dir, Option<Cell<T>>)> + 'a {
         directions.iter().map(move |dir| {
             let neighbor = self.neighbor(start, dir);
             (*dir, neighbor)
